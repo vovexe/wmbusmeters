@@ -448,7 +448,8 @@ AccessCheck detectCUL(Detected *detected, shared_ptr<SerialCommunicationManager>
         }
 
         // Wait for 200ms so that the USB stick have time to prepare a response.
-        usleep(1000*200);
+        //usleep(1000*200);
+		usleep(1000*3000); // For slow CUL devices
         serial->receive(&data);
         string resp = safeString(data);
         debug("(cul) probe response \"%s\"\n", resp.c_str());
