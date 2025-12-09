@@ -359,9 +359,9 @@ FrameStatus WMBusCUL::checkCULFrame(vector<uchar> &data,
 
         if (hex.size() % 2 == 1)
         {
-            warning("(cul) Warning! Your cul firmware has a bug that prevents longer telegrams from being received.!\n");
-            warning("(cul) Please read: https://github.com/wmbusmeters/wmbusmeters/issues/390\n");
-            warning("(cul)         and: https://wmbusmeters.github.io/wmbusmeters-wiki/nanoCUL.html\n");
+//            warning("(cul) Warning! Your cul firmware has a bug that prevents longer telegrams from being received.!\n");
+//            warning("(cul) Please read: https://github.com/wmbusmeters/wmbusmeters/issues/390\n");
+//            warning("(cul)         and: https://wmbusmeters.github.io/wmbusmeters-wiki/nanoCUL.html\n");
         }
 
         payload.clear();
@@ -370,13 +370,13 @@ FrameStatus WMBusCUL::checkCULFrame(vector<uchar> &data,
         {
             string s = safeString(hex);
             debug("(cul) bad hex \"%s\"\n", s.c_str());
-            warning("(cul) warning: the hex string is not proper! Ignoring telegram!\n");
+//            warning("(cul) warning: the hex string is not proper! Ignoring telegram!\n");
             return ErrorInFrame;
         }
         ok = trimCRCsFrameFormatB(payload);
         if (!ok)
         {
-            warning("(cul) dll C1 (frame b) crcs failed check! Ignoring telegram!\n");
+//            warning("(cul) dll C1 (frame b) crcs failed check! Ignoring telegram!\n");
             return ErrorInFrame;
         }
         debug("(cul) received full C1 frame\n");
@@ -395,9 +395,9 @@ FrameStatus WMBusCUL::checkCULFrame(vector<uchar> &data,
 
         if (hex.size() % 2 == 1)
         {
-            warning("(cul) Warning! Your cul firmware has a bug that prevents longer telegrams from being received.!\n");
-            warning("(cul) Please read: https://github.com/wmbusmeters/wmbusmeters/issues/390\n");
-            warning("(cul)         and: https://wmbusmeters.github.io/wmbusmeters-wiki/nanoCUL.html\n");
+//            warning("(cul) Warning! Your cul firmware has a bug that prevents longer telegrams from being received.!\n");
+//            warning("(cul) Please read: https://github.com/wmbusmeters/wmbusmeters/issues/390\n");
+//            warning("(cul)         and: https://wmbusmeters.github.io/wmbusmeters-wiki/nanoCUL.html\n");
         }
 
         payload.clear();
@@ -472,11 +472,11 @@ AccessCheck detectCUL(Detected *detected, shared_ptr<SerialCommunicationManager>
     detected->setAsFound("", BusDeviceType::DEVICE_CUL, 38400, false, detected->specified_device.linkmodes);
 
     verbose("(cul) are you there? yes\n");
-    warning("If you are using the nanoCUL then please be aware that\n"
-            "it can NEVER receive longer telegrams than 148 bytes!\n"
-            "Even worse, you will get crc errors because there is\n"
-            "no way for wmbusmeters to detect that nanoCUL has truncated\n"
-            "the telegram. If you are lucky the nanoCUL generates broken hex\n"
-            "which is detected and printed in the log.\n\n");
+//    warning("If you are using the nanoCUL then please be aware that\n"
+//            "it can NEVER receive longer telegrams than 148 bytes!\n"
+//            "Even worse, you will get crc errors because there is\n"
+//            "no way for wmbusmeters to detect that nanoCUL has truncated\n"
+//            "the telegram. If you are lucky the nanoCUL generates broken hex\n"
+//            "which is detected and printed in the log.\n\n");
     return AccessCheck::AccessOK;
 }
