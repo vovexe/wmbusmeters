@@ -412,7 +412,7 @@ FrameStatus WMBusCUL::checkCULFrame(vector<uchar> &data,
         ok = trimCRCsFrameFormatA(payload);
         if (!ok)
         {
-            warning("(cul) dll T1 (frame a) crcs failed check! Ignoring telegram!\n");
+//            warning("(cul) dll T1 (frame a) crcs failed check! Ignoring telegram!\n");
             return ErrorInFrame;
         }
         debug("(cul) received full T1 frame\n");
