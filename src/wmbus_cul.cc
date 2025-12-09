@@ -429,7 +429,7 @@ AccessCheck detectCUL(Detected *detected, shared_ptr<SerialCommunicationManager>
     if (!ok) return AccessCheck::NoSuchDevice;
 
     bool found = false;
-    for (int i=0; i<3; ++i)
+    for (int i=0; i<300; ++i)
     {
         // Try three times, it seems slow sometimes.
         vector<uchar> data;
